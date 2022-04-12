@@ -2,11 +2,12 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga/";
 import sagas from "./rootSaga";
 import chuck from "./chuck/slice";
+import trivia from "./trivia/slice";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: {chuck},
+  reducer: {chuck,trivia},
   middleware: [...getDefaultMiddleware(), sagaMiddleware],
 });
 

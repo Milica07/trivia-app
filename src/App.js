@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
-import TriviaApp from './pages/TriviaApp';
+import {Trivia} from './components/Trivia';
 import Chuck from "./components/Chuck";
 
 function App() {
-  const [trivia, setTrivia] = useState(false);
+  const [trivia, setTrivia] = useState(true);
   return (
     <div className="App">
       <Router>
@@ -18,12 +18,12 @@ function App() {
         </nav>
         <Switch>
           <Route to='/'>
-            <TriviaApp/>
+            <Trivia/>
           </Route>
         </Switch>
       <button onClick={() => setTrivia(true)}>Trivia</button>
       <button onClick={() => setTrivia(false)}>Chuck</button>
-      {trivia ? <p>Trivia</p> : <p><Chuck/></p>}
+      {trivia ? <p><Trivia/></p> : <p><Chuck/></p>}
       </Router>
     </div>
   );
