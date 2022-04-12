@@ -1,11 +1,12 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga/";
 import sagas from "./rootSaga";
+import chuck from "./chuck/slice";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: {},
+  reducer: {chuck},
   middleware: [...getDefaultMiddleware(), sagaMiddleware],
 });
 
