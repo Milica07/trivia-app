@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const middlewareActions = {
   getClues: () => {},
+  getCategories: () => {},
 };
 
 const triviaSlice = createSlice({
   name: "trivia",
-  initialState: { clues: [] },
+  initialState: { clues: [], categories: [] },
   reducers: {
     setClues: (state, action) => {
       state.clues = action.payload;
@@ -18,10 +19,13 @@ const triviaSlice = createSlice({
         : clue
       );
     },
+    setCategories: (state, { payload }) => {
+      state.categories = payload;
+    },
     ...middlewareActions,
   },
 });
 
-export const { setClues, getClues, toggleAnswer } = triviaSlice.actions;
+export const { setClues, getClues, toggleAnswer, getCategories, setCategories } = triviaSlice.actions;
 
 export default triviaSlice.reducer;

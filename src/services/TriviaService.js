@@ -6,5 +6,15 @@ class TriviaService extends HttpService {
     
     return data;
     };
+
+    getCategories = async () => {
+    const { data } = await this.client.get("http://jservice.io/api/categories",
+    {
+    params: { count: 10 },
+    }
+    );
+    
+    return data;
+    };
 }
 export default new TriviaService();
